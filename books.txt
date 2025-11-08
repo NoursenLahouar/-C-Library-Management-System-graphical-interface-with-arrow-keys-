@@ -1,3 +1,10 @@
-3|hama|chrab|55
-2|Nour el ma3aref|hindi|555
-3|joha wal himar|beji|235
+1|Harry Potter and the Philosopher's Stone|J.K. Rowling|15
+2|The Lord of the Rings|J.R.R. Tolkien|12
+3|The Alchemist|Paulo Coelho|20
+4|To Kill a Mockingbird|Harper Lee|10
+5|1984|George Orwell|18
+6|The Great Gatsby|F. Scott Fitzgerald|14
+7|Pride and Prejudice|Jane Austen|22
+8|The Hobbit|J.R.R. Tolkien|16
+9|The Da Vinci Code|Dan Brown|13
+10|The Little Prince|Antoine de Saint-Exupéry|25

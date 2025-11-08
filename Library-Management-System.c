@@ -421,49 +421,90 @@ int main(void) {
                     Color(7,0); system("cls");
                     if (book_count == 0) { printf("\nAucun livre.\n"); getch(); break; }
                     Color(9,0);
-                    printf("\n\n\n\t\t\t\t\t\tListe Livres \n\n");
+                    printf("\n\n\n\t\t\t\t   Liste des Livres \n\n");
                     for (int i=0;i<book_count;i++) {
                     
 					
-        Color(10,0);
+        Color(9,0);
         printf("\n\t\t[ %d ]", books[i].ref);
 		 Color(5,0);          	
-        printf("\tbook name = ");
+        printf("\n\t\tbook name = ");
         Color(7,0);
 		printf("%s", books[i].bookName);
 		Color(5,0);
-        printf("\t author name = ");
+        printf("\n\t\tauthor name = ");
         Color(7,0);
         printf("%s", books[i].author);
         Color(5,0);
-        printf("\t  pages = ");
+        printf("\n\t\tpages = ");
          Color(7,0);
         printf("%d", books[i].pages);
         Color(8,0);  
 
-        printf("\n\t\t\t--------------------------------------------------------------");
+        printf("\n\t\t--------------------------------------------------------------");
 					}
-					Color(8,0);  
-                    printf("\n\n\n\tEntrer reference du livre a modifier/supprimer : ");
+					Color(9,0);  
+                    printf("\n\n\n\t\t\tEntrer reference du livre a modifier/supprimer : ");
+                    Color(7,0);
                     int ref; if (scanf("%d",&ref)!=1) ref=-1; clear_input();
-                    if (ref <= 0 || ref > book_count) { printf("Reference invalide.\n"); getch(); break; }
+                    if (ref <= 0 || ref > book_count) { 
+                    Color(12,0);
+					printf("\n\t\t\t\t\tReference invalide !\n\n");
+					 Color(0,7);
+		  printf("\t\t << Retour  ");
+		   Color(7,0);
+		   printf("\n\n");
+					 getch();
+					
+		    break; }
                     // Choose action with arrow
                     int action = 1; int ak = 0;
                     while (ak != 13) {
                         Color(7,0); system("cls");
-                        printf("\nLivre selectionne: [%d] %s\n\n", books[ref-1].ref, books[ref-1].bookName);
-                        arrowHere(1, action); printf("\nModifier\n");
-                        arrowHere(2, action); printf("\nSupprimer\n");
-                        arrowHere(3, action); printf("\nRetour\n");
+                        Color(9,0);
+                        printf("\n\n\n\n\n\t\t\t\tLivre selectionne: ");
+                        Color(10,0);
+                         printf("[%d]", books[ref-1].ref);
+                         Color(7,0);
+                         printf(" %s \n\n", books[ref-1].bookName);
+                        arrowHere(1, action); printf("\n\t\t\t\t\t\t    Modifier   \n");
+                        arrowHere(2, action); printf("\n\t\t\t\t\t\t   Supprimer   \n");
+                        arrowHere(3, action); printf("\n\t\t\t\t\t\t   <<Retour    \n");
                         ak = read_arrow();
                         if (ak == 80 && action < 3) action++;
                         else if (ak == 72 && action > 1) action--;
                     }
                     if (action == 1) {
-                        printf("\nNouveau nom : "); read_line(books[ref-1].bookName, STR_MAX);
-                        printf("Nouvel auteur : "); read_line(books[ref-1].author, STR_MAX);
-                        printf("Pages : "); if (scanf("%d",&books[ref-1].pages)!=1) books[ref-1].pages=0; clear_input();
-                        printf("\nLivre modifie.\n"); getch();
+                    	system("cls");
+                    	Color(9,0);
+                        printf("\n\n\n\n\n\t\t\t\tLivre selectionne: ");
+                        Color(10,0);
+                         printf("[%d]", books[ref-1].ref);
+                         Color(7,0);
+                         printf(" %s \n\n\n", books[ref-1].bookName);
+                    	Color(8,0);
+                    	printf("\t\t\t\t\tNom: %s", books[ref-1].bookName);
+                    	Color(9,0);
+                        printf("\n\t\t\t\t\tNouveau nom: "); 
+                        Color(7,0);
+						read_line(books[ref-1].bookName, STR_MAX);
+						Color(8,0);
+                    	printf("\n\n\t\t\t\t\tAuteur: %s", books[ref-1].author);
+                    	Color(9,0);
+                        printf("\n\t\t\t\t\tNouvel auteur : "); 
+						Color(7,0);
+						read_line(books[ref-1].author, STR_MAX);
+						Color(8,0);
+                    	printf("\n\n\t\t\t\t\tPages: %d", books[ref-1].pages);
+                    	Color(9,0);
+                        printf("\n\t\t\t\t\tNouvelles pages: "); 
+						Color(7,0);
+                        if (scanf("%d",&books[ref-1].pages)!=1) books[ref-1].pages=0; clear_input();{
+                        Color(10,0);
+                        printf("\n\n\t\t\t\t\t\tLivre modifie avec succes !\n"); 
+						Color(0,7);
+                      printf("\n\n\n\t\t\t  << Appuyez sur une touche pour retournez  \n");
+						getch();}
                     } else if (action == 2) {
                         for (int i=ref-1;i<book_count-1;i++) books[i]=books[i+1];
                         book_count--;

@@ -1,0 +1,34 @@
+# Dev-C++ / Code::Blocks / Windows C builds
+
+# Executables and binary files
+*.exe
+*.dll
+*.o
+*.obj
+*.a
+*.so
+*.lib
+
+# Debug / Release build folders
+bin/
+build/
+Debug/
+Release/
+
+# Logs and junk files
+*.log
+*.tmp
+
+# Dev-C++ project/workspace files
+*.layout
+*.depend
+Makefile.win
+
+# C/C++ cache files
+*.pch
+*.pdb
+*.idb
+*.ilk
+
+# VS Code settings (if you use it)
+.vscode/

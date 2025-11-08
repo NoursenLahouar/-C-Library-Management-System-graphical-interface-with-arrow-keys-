@@ -540,23 +540,37 @@ int main(void) {
             while (trycount < 3 && logged_index == -1) {
                 Color(7,0); system("cls");
                 Color(15,4);
-                printf("\n\n\n\n\t\t\t\t\t      CONNEXION ETUDIANT\n\n");
-                Color(7,0);
+		printf("\n\n\n\n\n\n\n\t\t\t\t                Connexion Etudiant                    \n");
+		 Color(11,0);
                 char username[STR_MAX]; char password[STR_MAX];
-                printf("\nNom d'utilisateur : "); read_line(username, STR_MAX);
-                printf("Mot de passe : "); read_line(password, STR_MAX);
+                Color(11,0);
+		 printf("\n\t\t\t\t\tNom d'utlisiateur : ");
+		  Color(7,0);
+				read_line(username, STR_MAX);
+                Color(11,0);
+    printf("\n\t\t\t\t\tMot de passe : ");
+          Color(7,0); 
+				read_line(password, STR_MAX);
                 // search
                 for (int i=0;i<student_count;i++) {
                     if (strcmp(username, students[i].Name)==0 && strcmp(password, students[i].pass)==0) { logged_index = i; break; }
                 }
                 if (logged_index==-1) {
-                    printf("\nNom ou mot de passe incorrect. (tentative %d/3)\n", trycount+1);
+                    Color(12,0);
+           printf("\n\n\t\t\t\t      Nom ou Mot de passe Incorrect, Reessayez %d/3",trycount+1);
                     trycount++;
                     getch();
                 }
             }
             if (logged_index == -1) {
-                printf("\nEchec connexion. Retour au menu principal.\n"); getch(); continue;
+                Color(8,0);
+		  printf("\n\n\n\n\t\t\t\t      Vous avez depasse le limite de repetition ! ");
+          
+		 
+		  Color(0,7);
+		  printf("\n\n\n\n\t\t\t << Menu Princial   \n\n");
+		   Color(7,0);
+		    getch(); continue;
             }
 
             // Student space loop: stays until logout (Deconnexion)
